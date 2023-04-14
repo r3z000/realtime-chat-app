@@ -16,7 +16,7 @@ function getGoogleCredentials() {
   return { clientId, clientSecret };
 }
 
-export const authOption: NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
   adapter: UpstashRedisAdapter(db),
   session: {
     strategy: "jwt",

@@ -1,10 +1,10 @@
-import { authOption } from "@/lib/auth";
+import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 
 const page = async ({}) => {
-  const sesion = await getServerSession(authOption);
+  const sesion = await getServerSession(authOptions);
 
-  return <pre>{JSON.stringify(sesion)}</pre>;
+  return <div>Dashboard</div>;
 };
 
 export default page;
