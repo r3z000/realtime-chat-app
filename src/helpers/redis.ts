@@ -1,5 +1,5 @@
 const upstashRedisRestUrl = process.env.UPSTASH_REDIS_REST_URL;
-const authToken = process.env.UPSTASH_REDIS_REST_SECRET;
+const authToken = process.env.UPSTASH_REDIS_REST_TOKEN;
 
 type Command = "zrange" | "sismember" | "get" | "smembers";
 
@@ -11,7 +11,7 @@ export async function fetchRedis(
 
   const response = await fetch(commandUrl, {
     headers: {
-      Athorization: `Bearer ${authToken}`,
+      Authorization: `Bearer ${authToken}`,
     },
     cache: "no-store",
   });
