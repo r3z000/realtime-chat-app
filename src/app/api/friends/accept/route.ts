@@ -47,9 +47,13 @@ export async function POST(req: Request) {
 
     // notify added user
 
-    db.sadd(`user:${session.user.id}:friends`, idToAdd);
-    db.sadd(`user:${idToAdd}:friends`, session.user.id);
-    db.srem(`user:${session.user.id}:incoming_friend_requests`, idToAdd);
+    await Promise.all([
+      db.sadd(`user:${session.user.id}:friends`, idToAdd),
+      db.sadd(`user:${idToAdd}:friends`, session.user.id),
+      db.srem(`user:${session.user.id}:incoming_friend_requests`, idToAdd),
+    ]);
+
+    return new Response("OK");
   } catch (error) {
     if (error instanceof z.ZodError) {
       return new Response("Invalid request payload", { status: 422 });
