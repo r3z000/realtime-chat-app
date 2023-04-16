@@ -49,7 +49,6 @@ export async function POST(req: Request) {
 
     const message = messageValidator.parse(messageData);
 
-    // notify all connected chat room clients
     await pusherServer.trigger(
       toPusherKey(`chat:${chatId}`),
       "incoming-message",
@@ -66,7 +65,6 @@ export async function POST(req: Request) {
       }
     );
 
-    // all valid, send the message
     await db.zadd(`chat:${chatId}:messages`, {
       score: timestamp,
       member: JSON.stringify(message),

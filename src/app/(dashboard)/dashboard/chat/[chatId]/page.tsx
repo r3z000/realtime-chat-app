@@ -48,7 +48,6 @@ const page = async ({ params }: PageProps) => {
   }
 
   const chatPartnerId = user.id === userId1 ? userId2 : userId1;
-  // new
 
   const chatPartnerRaw = (await fetchRedis(
     "get",
