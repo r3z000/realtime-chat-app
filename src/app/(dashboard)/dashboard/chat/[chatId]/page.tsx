@@ -1,11 +1,11 @@
 import ChatInput from "@/components/ChatInput";
-import Image from "next/image";
+import Messages from "@/components/Messages";
+import { fetchRedis } from "@/helpers/redis";
+import { authOptions } from "@/lib/auth";
 import { messageArrayValidator } from "@/lib/validations/message";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { fetchRedis } from "@/helpers/redis";
-import Messages from "@/components/Messages";
 
 interface PageProps {
   params: {
@@ -48,6 +48,7 @@ const page = async ({ params }: PageProps) => {
   }
 
   const chatPartnerId = user.id === userId1 ? userId2 : userId1;
+  // new
 
   const chatPartnerRaw = (await fetchRedis(
     "get",
