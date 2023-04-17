@@ -36,7 +36,7 @@ const page = async ({}) => {
     <div className="container py-12">
       <h1 className="font-bold text-5xl mb-8">Recent chats</h1>
       {friendsWithLastMessage.length === 0 ? (
-        <p className="text-sm text-zinc-500">No recent chats</p>
+        <p className="text-sm text-zinc-500">Nothing to show here...</p>
       ) : (
         friendsWithLastMessage.map((friend) => (
           <div
@@ -62,7 +62,6 @@ const page = async ({}) => {
                     alt={`${friend.name} profile picture`}
                     src={friend.image}
                     fill
-                    sizes="max-width: 96px"
                   />
                 </div>
               </div>

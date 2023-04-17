@@ -34,6 +34,7 @@ const loading: FC<loadingProps> = ({}) => {
                     </div>
                   </div>
 
+                  {/* my messages */}
                   <div className="col-start-1 col-end-8 p-3 rounded-lg">
                     <div className="flex flex-row items-center">
                       <div className="relative h-10 w-10">

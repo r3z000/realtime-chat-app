@@ -1,17 +1,17 @@
-import { Icons } from "@/components/Icons";
+import { Icon, Icons } from "@/components/Icons";
 import SignOutButton from "@/components/SignOutButton";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import FriendRequestSidebarOptions from "@/components/FriendRequestSidebarOptions";
 import { fetchRedis } from "@/helpers/redis";
 import { getFriendsByUserId } from "@/helpers/get-friends-by-user-id";
 import SidebarChatList from "@/components/SidebarChatList";
-import { SidebarOption } from "@/types/typings";
 import MobileChatLayout from "@/components/MobileChatLayout";
+import { SidebarOption } from "@/types/typings";
 
 interface LayoutProps {
   children: ReactNode;
@@ -55,7 +55,7 @@ const Layout = async ({ children }: LayoutProps) => {
         />
       </div>
 
-      <div className="hidden md:flex h-full w-full  max-w-xs grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
+      <div className="hidden md:flex h-full w-full max-w-xs grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
         <Link href="/dashboard" className="flex h-16 shrink-0 items-center">
           <Icons.Logo className="h-8 w-auto text-indigo-600" />
         </Link>
@@ -104,11 +104,10 @@ const Layout = async ({ children }: LayoutProps) => {
               </ul>
             </li>
 
-            <li className="-mx-8 mt-auto flex items-center">
+            <li className="-mx-6 mt-auto flex items-center">
               <div className="flex flex-1 items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
                 <div className="relative h-8 w-8 bg-gray-50">
                   <Image
-                    sizes="max-width: 96px"
                     fill
                     referrerPolicy="no-referrer"
                     className="rounded-full"
@@ -126,7 +125,7 @@ const Layout = async ({ children }: LayoutProps) => {
                 </div>
               </div>
 
-              <SignOutButton className="h-full mr-2  aspect-square" />
+              <SignOutButton className="h-full aspect-square" />
             </li>
           </ul>
         </nav>

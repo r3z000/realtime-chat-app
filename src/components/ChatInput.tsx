@@ -48,6 +48,7 @@ const ChatInput: FC<ChatInputProps> = ({ chatPartner, chatId }) => {
           placeholder={`Message ${chatPartner.name}`}
           className="block w-full resize-none border-0 bg-transparent text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:py-1.5 sm:text-sm sm:leading-6"
         />
+
         <div
           onClick={() => textareaRef.current?.focus()}
           className="py-2"

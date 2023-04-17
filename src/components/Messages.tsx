@@ -102,7 +102,6 @@ const Messages: FC<MessagesProps> = ({
                 })}
               >
                 <Image
-                  sizes="max-width: 96px"
                   fill
                   src={
                     isCurrentUser ? (sessionImg as string) : chatPartner.image

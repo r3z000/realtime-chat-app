@@ -2,11 +2,11 @@
 
 import { addFriendValidator } from "@/lib/validations/add-friend";
 import axios, { AxiosError } from "axios";
-import Button from "./ui/Button";
 import { FC, useState } from "react";
+import Button from "./ui/Button";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 interface AddFriendButtonProps {}
 

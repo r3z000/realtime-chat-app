@@ -4,6 +4,7 @@ interface User {
   image: string;
   id: string;
 }
+
 interface Chat {
   id: string;
   messages: Message[];

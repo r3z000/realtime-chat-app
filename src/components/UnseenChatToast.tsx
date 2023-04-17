@@ -36,7 +36,6 @@ const UnseenChatToast: FC<UnseenChatToastProps> = ({
           <div className="flex-shrink-0 pt-0.5">
             <div className="relative h-10 w-10">
               <Image
-                sizes="max-width: 96px"
                 fill
                 referrerPolicy="no-referrer"
                 className="rounded-full"
