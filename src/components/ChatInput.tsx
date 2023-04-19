@@ -36,15 +36,19 @@ const ChatInput: FC<ChatInputProps> = ({ chatPartner, chatId }) => {
       <div className="relative flex-1 overflow-hidden rounded-lg shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600">
         <TextareaAutosize
           ref={textareaRef}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && !e.shiftKey) {
-              e.preventDefault();
-              sendMessage();
-            }
-          }}
+          onKeyDown={
+            !isLoading
+              ? (e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                  }
+                }
+              : undefined
+          }
           rows={1}
           value={isLoading ? "" : input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={(e) => (!isLoading ? setInput(e.target.value) : "")}
           placeholder={`Message ${chatPartner.name}`}
           className="block w-full resize-none border-0 bg-transparent text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:py-1.5 sm:text-sm sm:leading-6"
         />

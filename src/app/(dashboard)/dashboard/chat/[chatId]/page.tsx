@@ -83,6 +83,7 @@ const page = async ({ params }: PageProps) => {
           <div className="relative">
             <div className="relative w-8 sm:w-12 h-8 sm:h-12">
               <Image
+                sizes="56"
                 fill
                 referrerPolicy="no-referrer"
                 src={chatPartner.image}

@@ -62,12 +62,13 @@ const page = async ({}) => {
                     alt={`${friend.name} profile picture`}
                     src={friend.image}
                     fill
+                    sizes="56"
                   />
                 </div>
               </div>
 
               <div>
-                <h4 className="text-lg font-semibold">{friend.name}</h4>
+                <h4 className="text-base font-semibold">{friend.name}</h4>
                 <p className="mt-1 max-w-md">
                   <span className="text-zinc-400">
                     {friend.lastMessage.senderId === session.user.id
